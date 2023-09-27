@@ -1,7 +1,11 @@
 <?php
+
+session_start();
 include ("config.php");
 
-$result = mysqli_query($link, "SELECT * FROM users;");
+$id = $_SESSION["id"];
+
+$result = mysqli_query($link, "SELECT * FROM users WHERE id='" . $id . "';");
 
 while ($row = mysqli_fetch_array($result))
     {
